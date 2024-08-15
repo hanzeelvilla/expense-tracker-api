@@ -1,0 +1,8 @@
+Login
+curl -X POST http://localhost:8000/auth/login/ -H "Content-Type: application/json" -d "{\"username\": \"YOUR_USERNAME\", \"password\": \"YOUR_PSWD\"}"
+
+Logout
+curl -X POST http://localhost:8000/api/auth/logout/
+
+Try the token
+curl -H "Authorization: Token YOUR_TOKEN" http://localhost:8000/api/auth/user/

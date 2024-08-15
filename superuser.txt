@@ -1,0 +1,11 @@
+walle
+adminpswd1234
+
+Login
+curl -X POST http://localhost:8000/api/auth/login/ -H "Content-Type: application/json" -d "{\"username\": \"walle\", \"password\": \"adminpswd1234\"}"
+
+Response
+{"key":"966a8f57e1227b12e5fd5b020819c3a74900121c"}
+
+Try the token
+curl -H "Authorization: Token 966a8f57e1227b12e5fd5b020819c3a74900121c" http://localhost:8000/api/auth/user/
