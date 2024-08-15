@@ -7,7 +7,7 @@ The Expense Tracker API is a RESTful service designed to manage personal finance
 Clone the repository
 
 ```bash
-git clone "https://github.com/hanzeelvilla/simple-ecommerce.git"
+git clone "https://github.com/hanzeelvilla/expense-tracker-api.git"
 ```
 
 Create a virtual environment
