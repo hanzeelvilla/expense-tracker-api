@@ -13,8 +13,7 @@ SECRET_KEY = 'django-insecure-nny_snd%#1(pwt^-232kh5r6^)tvq!v#s)rbx+(+*tuuf%ot@m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["*"] #CHANGE THITS IN PRODUCTION
 
 # Application definition
 
@@ -28,7 +27,11 @@ INSTALLED_APPS = [
     #3rd party
     "rest_framework",
     "rest_framework.authtoken",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
     "dj_rest_auth",
+    "dj_rest_auth.registration",
 ]
 
 REST_FRAMEWORK = {
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'django_project.urls'
@@ -65,13 +69,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'django_project.wsgi.application'
+SITE_ID = 1
 
+WSGI_APPLICATION = 'django_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -82,7 +88,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -125,9 +130,12 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_REQUIRED = False
+
 #CHANGE THIS IN PRODUCTION
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000", #react/node 
     "http://localhost:5500", #live server
-] 
+]
