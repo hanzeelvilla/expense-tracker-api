@@ -1,0 +1,14 @@
+@TOKEN = a4ddfee49b50d82769bdd64a2845bf46acb7cd1d 
+#hanzeel token
+
+###
+
+#GET EXPENSES
+GET http://localhost:8000/api/expenses/ 
+Authorization: token {{TOKEN}}
+
+###
+
+#GET EXPENSE 2, NOT YOURS, 1 IS
+GET http://localhost:8000/api/expenses/2/ 
+Authorization: token {{TOKEN}}

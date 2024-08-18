@@ -15,9 +15,3 @@ Content-Type: application/json
 
 POST http://localhost:8000/api/auth/logout/
 Authorization: token 1c5b388872511fb5126b9f04438d50e1b5580c6c 
-
-###
-
-GET http://localhost:8000/api/auth/test/ 
-Content-Type: application/json 
-Authorization: token 1c5b388872511fb5126b9f04438d50e1b5580c6c
