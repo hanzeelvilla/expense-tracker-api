@@ -12,3 +12,35 @@ Authorization: token {{TOKEN}}
 #GET EXPENSE 2, NOT YOURS, 1 IS
 GET http://localhost:8000/api/expenses/2/ 
 Authorization: token {{TOKEN}}
+
+###
+
+#CREATE EXPENSE
+POST http://localhost:8000/api/expenses/
+Authorization: token {{TOKEN}}
+Content-Type: application/json
+
+{ 
+    "title": "curl expense", 
+    "amount": 100.00,
+    "category": "OTHER" 
+}
+
+###
+
+#UPDATE EXPENSE 3
+PUT http://localhost:8000/api/expenses/3/
+Authorization: token {{TOKEN}}
+Content-Type: application/json
+
+{ 
+    "title": "curl expense UPDATED", 
+    "amount": 5,
+    "category": "FOOD" 
+}
+
+###
+
+#DELETE EXPENSE 3
+DELETE http://localhost:8000/api/expenses/3/
+Authorization: token {{TOKEN}}

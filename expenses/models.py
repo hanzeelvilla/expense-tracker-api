@@ -2,6 +2,11 @@ from django.contrib.auth.models import User
 from django.db import models
 
 class Expense(models.Model):
+    
+    #CATEGORY CHOICES = {
+        #"como se guarda en la bd", "como se muestra al usuario"
+    #}
+    
     CATEGORY_CHOICES = {
         "FOOD": "Food",
         "TRANSPORT": "Transport",
