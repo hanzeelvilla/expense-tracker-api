@@ -1,17 +1,20 @@
-
+#SIGNUP
+#This should return an error if you used the test data
 POST http://localhost:8000/api/auth/signup/ 
 Content-Type: application/json
 
-{ "username": "hanzeel", "password": "userPassword1" }
+{ "username": "testuser1", "password": "testpswd1234" }
 
 ###
 
+#LOGIN
 POST http://localhost:8000/api/auth/login/ 
 Content-Type: application/json
 
-{ "username": "hanzeel", "password": "userPassword1" }
+{ "username": "testuser1", "password": "testpswd1234" }
 
 ###
 
+#LOGOUT
 POST http://localhost:8000/api/auth/logout/
-Authorization: token 1c5b388872511fb5126b9f04438d50e1b5580c6c 
+Authorization: token e20cda3d4b29596dc27c66e6c7f1fa05d1c054cc 

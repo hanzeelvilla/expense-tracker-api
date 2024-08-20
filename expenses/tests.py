@@ -16,6 +16,7 @@ class ExpensesTests(TestCase):
             description = "I'm just doing a test",
             amount = 0,
             user = cls.user,
+            created_at = "2024-08-28",
             category = "Other",
         )
         

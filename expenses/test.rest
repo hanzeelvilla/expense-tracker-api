@@ -1,5 +1,5 @@
-@TOKEN = a4ddfee49b50d82769bdd64a2845bf46acb7cd1d 
-#hanzeel token
+@TOKEN = 6ccc47c2bbf3b365cf99108c15f84553cd422dc0
+#testuser1 token
 
 ###
 
@@ -9,8 +9,8 @@ Authorization: token {{TOKEN}}
 
 ###
 
-#GET EXPENSE 2, NOT YOURS, 1 IS
-GET http://localhost:8000/api/expenses/2/ 
+#GET EXPENSE 13
+GET http://localhost:8000/api/expenses/13/ 
 Authorization: token {{TOKEN}}
 
 ###
@@ -21,26 +21,80 @@ Authorization: token {{TOKEN}}
 Content-Type: application/json
 
 { 
-    "title": "curl expense", 
-    "amount": 100.00,
-    "category": "OTHER" 
+    "title": "NEW EXPENSE", 
+    "amount": 0,
+    "created_at":"2024-08-19", 
+    "category": "other"
 }
 
 ###
 
-#UPDATE EXPENSE 3
-PUT http://localhost:8000/api/expenses/3/
+#UPDATE EXPENSE 14
+PUT http://localhost:8000/api/expenses/14/
 Authorization: token {{TOKEN}}
 Content-Type: application/json
 
 { 
-    "title": "curl expense UPDATED", 
-    "amount": 5,
-    "category": "FOOD" 
+    "title": "NEW EXPENSE ISN'T FREE BUDDY", 
+    "amount": 1000000,
+    "created_at":"2024-08-19"
 }
 
 ###
 
-#DELETE EXPENSE 3
-DELETE http://localhost:8000/api/expenses/3/
+#DELETE EXPENSE 14
+DELETE http://localhost:8000/api/expenses/14/
+Authorization: token {{TOKEN}}
+
+###
+
+##############      TRY FILTERS     ##############
+
+###
+
+#GET EXACT CATEGORY
+GET http://localhost:8000/api/expenses/?category=food 
+Authorization: token {{TOKEN}}
+
+###
+
+#GET GREATER THAN X
+GET http://localhost:8000/api/expenses/?amount__gt=1000
+Authorization: token {{TOKEN}}
+
+###
+
+#GET LESS THAN X
+GET http://localhost:8000/api/expenses/?amount__lt=500
+Authorization: token {{TOKEN}}
+
+###
+
+#COMBINE FILTERS
+GET http://localhost:8000/api/expenses/?category=food&amount__gt=300
+Authorization: token {{TOKEN}}
+
+###
+
+#EXACT DATE
+GET http://localhost:8000/api/expenses/?created_at=2024-08-14
+Authorization: token {{TOKEN}}
+
+###
+
+#BEFORE A DATE
+GET http://localhost:8000/api/expenses/?created_at__lte=2024-08-1
+Authorization: token {{TOKEN}}
+
+###
+
+#AFTER A DATE
+GET http://localhost:8000/api/expenses/?created_at__gte=2024-08-1
+Authorization: token {{TOKEN}}
+
+
+###
+
+#BETWEEN A DATE
+GET http://localhost:8000/api/expenses/?created_at__gte=2024-02-1&created_at__lte=2024-07-1
 Authorization: token {{TOKEN}}
