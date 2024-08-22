@@ -59,7 +59,7 @@ python manage.py createsuperuser
 If you want to, you can run the following command to fill the db with some test data
 
 ```python
-python.exe .\manage.py  fill_with_test_data
+python.exe .\manage.py  create_test_data
 ```
 
 Run the server

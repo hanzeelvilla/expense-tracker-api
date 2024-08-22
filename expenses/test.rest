@@ -1,10 +1,10 @@
-@TOKEN = 6ccc47c2bbf3b365cf99108c15f84553cd422dc0
+@TOKEN = 20bd46cd0f6c06cfd50ccc85f4e782816ba99402
 #testuser1 token
 
 ###
 
-#GET EXPENSES
-GET http://localhost:8000/api/expenses/ 
+#GET EXPENSES Page 1
+GET http://localhost:8000/api/expenses/
 Authorization: token {{TOKEN}}
 
 ###
