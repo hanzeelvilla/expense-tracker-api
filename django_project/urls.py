@@ -10,5 +10,5 @@ urlpatterns = [
     path("api/auth/", include("authorization.urls")),
     path("api/expenses/", include("expenses.urls")),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
-    path("api/schema/redoc/", SpectacularRedocView.as_view(), name="redoc"),
+    path("api/documentation/", SpectacularRedocView.as_view(), name="redoc"),
 ]
