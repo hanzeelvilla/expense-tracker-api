@@ -1,4 +1,8 @@
 from pathlib import Path
+from environs import Env
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,12 +12,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-466!)*i+$5n0yv6^m_&qsn$6pi=y8rc&pri9m^8a##n^tt0c+7' #Change this in production
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"] #Change this in production
 
 
 # Application definition
@@ -30,6 +34,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "django_filters",
     "drf_spectacular",
+    "corsheaders",
     #Local
     "authorization",
     "expenses",

@@ -16,10 +16,17 @@ Create a virtual environment
 python -m venv .venv
 ```
 
-Activate the virtual environment (This command is for windows)
+Activate the virtual environment 
+
+Command for windows
 
 ```bash
 .\.venv\Scripts\Activate.ps1
+```
+
+Command for linux
+```bash
+source .venv/bin/activate
 ```
 
 Install the requirements
@@ -27,6 +34,15 @@ Install the requirements
 ```bash
 pip install -r requirements.txt
 ```
+
+Create a .env file and a SECRET_KEY
+
+You can run this comand that generates a a functional SECRET_KEY
+
+```python
+python -c "import secrets; print(secrets.token_urlsafe())"
+```
+
 
 Create the database
 
@@ -52,7 +68,10 @@ Run the server
 python.exe .\manage.py runserver
 ```
 
-If you fill the db with the test data you can try it out with the commands in the .rest files, you will need the extension REST CLIENT from visual studio code. First you need to run the .rest file (clicking in each endpoint) in the authorization app so you can get you token.Then copy and paste it inside the TOKEN variable in the .rest file inside expenses app.
+If you fill the db with the test data you can try it out with the commands in the .rest files, you will need the extension REST CLIENT from visual studio code. 
+
+1. First you need to run the .rest file (clicking in each endpoint) in the authorization app so you can get you token.
+2. Then copy and paste it inside the TOKEN variable in the .rest file inside expenses app.
 
 ## FEATURES
 - User Authentication
