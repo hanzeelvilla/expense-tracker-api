@@ -7,11 +7,19 @@ Content-Type: application/json
 
 ###
 
-#LOGIN
+#LOGIN USER1
 POST http://localhost:8000/api/auth/login/ 
 Content-Type: application/json
 
 { "username": "testuser1", "password": "testpswd1234" }
+
+###
+
+#LOGIN USER2
+POST http://localhost:8000/api/auth/login/ 
+Content-Type: application/json
+
+{ "username": "testuser2", "password": "testpswd1234" }
 
 ###
 

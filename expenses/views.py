@@ -2,6 +2,7 @@ from rest_framework import generics
 from django.db.models import Sum
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter
 
 from .models import Expense
 from .serializers import ExpenseSerializer
@@ -10,8 +11,10 @@ from .filters import ExpenseListFilter, TotalExpenseFilter
 
 class ExpenseList(generics.ListCreateAPIView):
     serializer_class = ExpenseSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_class = ExpenseListFilter
+    ordering_fields = ("amount", "created_at")
+    ordering = ("created_at",)
     
     def get_queryset(self):
         return Expense.objects.filter(user=self.request.user)

@@ -1,23 +1,25 @@
-@TOKEN = 20bd46cd0f6c06cfd50ccc85f4e782816ba99402
-#testuser1 token
+@TOKENUSER1 = 7f7ed67d5dfed967b5c38508a972b41164163c6f
+#testuser1 TOKENUSER1
+@TOKENUSER2 = 2629dca01eb1bd32fabb0aadbea4b51e09bd4ba2
+#testuser1 TOKENUSER2
 
 ###
 
 #GET EXPENSES Page 1
 GET http://localhost:8000/api/expenses/
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #GET EXPENSE 13
 GET http://localhost:8000/api/expenses/13/ 
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #CREATE EXPENSE
 POST http://localhost:8000/api/expenses/
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 Content-Type: application/json
 
 { 
@@ -31,7 +33,7 @@ Content-Type: application/json
 
 #UPDATE EXPENSE 14
 PUT http://localhost:8000/api/expenses/14/
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 Content-Type: application/json
 
 { 
@@ -44,7 +46,7 @@ Content-Type: application/json
 
 #DELETE EXPENSE 14
 DELETE http://localhost:8000/api/expenses/14/
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
@@ -54,65 +56,65 @@ Authorization: token {{TOKEN}}
 
 #GET EXACT CATEGORY
 GET http://localhost:8000/api/expenses/?category=food 
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #GET GREATER THAN X
 GET http://localhost:8000/api/expenses/?min_amount=1000
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #GET LESS THAN X
 GET http://localhost:8000/api/expenses/?max=500
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #COMBINE FILTERS
 GET http://localhost:8000/api/expenses/?category=food&min_amount=300
-Authorization: token {{TOKEN}}
+Authorization: TOKENUSER1 {{TOKENUSER1}}
 
 ###
 
 #EXACT DATE
 GET http://localhost:8000/api/expenses/?date=2024-08-14
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #BEFORE A DATE
 GET http://localhost:8000/api/expenses/?end_date=2024-08-1
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #AFTER A DATE
 GET http://localhost:8000/api/expenses/?start_date=2024-08-1
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 
 ###
 
 #BETWEEN A DATE
 GET http://localhost:8000/api/expenses/?start_date=2024-02-1&end_date=2024-07-1
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #TOTAL USER HAS SPENT
 GET http://localhost:8000/api/expenses/total/
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #TOTAL USER HAS SPENT IN A CATEGORY
 GET http://localhost:8000/api/expenses/total/?category=transport
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
 
 ###
 
 #TOTAL USER HAS SPENT IN A PERIOD OF TIME
 GET http://localhost:8000/api/expenses/total/?start_date=2024-02-01&end_date=2024-02-29
-Authorization: token {{TOKEN}}
+Authorization: TOKEN {{TOKENUSER1}}
